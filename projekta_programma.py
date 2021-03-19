@@ -5,7 +5,7 @@ class Error(Exception):
    pass
 
 def getAnswer(x,input_string):
-   """Iegūst mainīgajam x vērtību 1 vai 2, parādot tekstu input_string. Ja ievadīta nepareiza vērtība, tad tiek paradīta kļūdas ziņa."""
+   """Pieprasa mainīgajam x vērtību 1 vai 2, parādot tekstu input_string. Ja ievadīta nepareiza vērtība, tad tiek paradīta kļūdas ziņa."""
    while True:
       try:
          x = int(input(input_string))
