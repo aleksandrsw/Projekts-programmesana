@@ -3,7 +3,7 @@ Versija 0.2.1
 
 Programma, kas pēc lietotāja vajadzībām atrod
 izdevīgākās un pieejamākās bankas, kur apmainīt valūtu no EUR uz USD
-nejuridiskām vajadzībām
+nejuridiskām vajadzībām.
 
 ## Programmatūras lietošanas instrukcija
 
