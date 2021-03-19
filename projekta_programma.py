@@ -4,6 +4,12 @@ import operator
 class Error(Exception):
    pass
 
+def sortTable(filename, db_sorted):
+   """No filename iegūst datubāzi un sakārto to augošā secībā pēc otrās kolumnas. Iegūtā datubāze ir izvadīta kā db_sorted."""
+   db = csv.reader(open(str(filename)), delimiter=",")
+   db_sorted = sorted(db, key=operator.itemgetter(1), reverse=True) # sakārto datubāzi augošā secībā
+   return db_sorted
+
 val_apm_veids = None
 vai_atr_pie_ielas = None
 velme_redz_nak_rezult = None
@@ -56,8 +62,8 @@ else: # citādāk, ja lietotājs neatrodas tuvumā pie LB, tad ir vēlme redzēt
 
 # ja lietotājs vēlas redzēt banku izdevīguma tabulu (ja lietotājs atrodas pie LB) vai neatrodas pie Latvijas Bankas, tad tā tiek parādīta
 if velme_redz_nak_rezult == 1:
-   val_kursi = csv.reader(open("val-kursi.csv"), delimiter=",")
-   val_kursi_sorted = sorted(val_kursi, key=operator.itemgetter(1), reverse=True) # sakārto datubāzi pēc kursiem augošā secībā
+   val_kursi = None
+   val_kursi_sorted = sortTable("val-kursi.csv", val_kursi) # valūtas kursu tabula tiek sakārtota augošā secībā
    print("\n  Izdevīgāko banku tabula:")
    for Banka, Kurss in val_kursi_sorted:
       print("{:<21} {:<15}".format(Banka,Kurss))
