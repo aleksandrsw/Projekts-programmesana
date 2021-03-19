@@ -7,7 +7,8 @@ nejuridiskām vajadzībām
 
 ## Programmatūras lietošanas instrukcija
 
-Lai lietotu programmatūru, uz operētājsistēmas jābut instalētam Python interpretētājam. To var lejupielādēt [šeit](https://www.python.org/downloads/).
+Lai lietotu programmatūru, uz operētājsistēmas jābut instalētam Python interpretētājam, un tam jābut atrodam PATH vides mainīgajā (environmental variable).
+Python var lejupielādēt [šeit](https://www.python.org/downloads/) vai arī izmantojot paku pārvaldītāju (package manager), skatoties pec operētājsistēmas.
 
 Lai palaistu programmatūru, veiciet komandu no komandlīnijas interfeisa:
 
