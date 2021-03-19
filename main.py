@@ -1,3 +1,6 @@
+import csv
+import operator
+
 class Kluda(Exception):
    pass
 
@@ -22,11 +25,11 @@ while True:
 
 # ja lietotājs apmaina val caur skaidru naudu un atrodas Rīgā, vai_atr_pie_ielas = vai lietotājs atrodas tuvumā pie Latvijas Bankas?
 if val_apm_veids == 1:
-   atr_vieta = input("Ievadiet jūsu atrašanās vietu\n")
-   if atr_vieta.strip() == "Rīga" or atr_vieta.strip() == "Riga":
+   atr_vieta = input("\nIevadiet jūsu atrašanās vietu\n")
+   if atr_vieta.strip().lower() == "rīga" or atr_vieta.strip().lower() == "riga":
       while True:
          try:
-            vai_atr_pie_ielas = int(input("Ievadiet 1, ja jūs atrodaties tuvumā pie K. Valdemāra ielas 2A. Ja neatrodaties, ievadiet 2.\n"))
+            vai_atr_pie_ielas = int(input("\nIevadiet 1, ja jūs atrodaties tuvumā pie K. Valdemāra ielas 2A. Ja neatrodaties, ievadiet 2.\n"))
             if vai_atr_pie_ielas < 1:
                raise Kluda
             elif vai_atr_pie_ielas > 2:
@@ -37,7 +40,7 @@ if val_apm_veids == 1:
 
 # ja lietotājs atrodas tuvumā pie Latvijas Bankas, velme_redz_nak_rezult = vai lietotājs vēlas redzēt citas bankas, kur apmainīt naudu? 
 if vai_atr_pie_ielas == 1:
-   print("\nVisizdevīgākā un pieejamākā vieta, kur apmainīt valūtu ir Latvijas Banka.\n")
+   print("\nVispieejamākā vieta, kur apmainīt valūtu ir Latvijas Banka.\n")
    while True:
       try:
          velme_redz_nak_rezult = int(input("Ja jūs vēlaties redzēt citas bankas, kuras būtu izdevīgi apmainīt naudu, ievadiet 1. Ja nevēlaties, ievadiet 2.\n"))
@@ -48,8 +51,15 @@ if vai_atr_pie_ielas == 1:
          break
       except:
          print("Lūdzu ievadiet 1 vai 2.\n")
+else: # citādāk, ja lietotājs neatrodas tuvumā pie LB, tad ir vēlme redzēt citas bankas, kur apmainīt naudu
+   velme_redz_nak_rezult = 1
 
+# ja lietotājs vēlas redzēt banku izdevīguma tabulu (ja lietotājs atrodas pie LB) vai neatrodas pie Latvijas Bankas, tad tā tiek parādīta
 if velme_redz_nak_rezult == 1:
-   print("Izdevīgākās bankas")
+   val_kursi = csv.reader(open("val-kursi.csv"), delimiter=",")
+   val_kursi_sorted = sorted(val_kursi, key=operator.itemgetter(1), reverse=True) # sakārto datubāzi pēc kursiem augošā secībā
+   print("\n  Izdevīgāko banku tabula:")
+   for Banka, Kurss in val_kursi_sorted:
+      print("{:<21} {:<15}".format(Banka,Kurss))
 elif velme_redz_nak_rezult == 2:
    exit()
