@@ -13,7 +13,7 @@ def getAnswer(x,input_string):
             raise ValueError
          break
       except:
-         print("Lūdzu ievadiet 1 vai 2.")
+         print("Lūdzu ievadiet 1 vai 2.\n")
    return x
          
 val_apm_veids = None
