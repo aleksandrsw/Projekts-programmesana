@@ -16,4 +16,4 @@ Lai palaistu programmatūru, veiciet komandu no komandlīnijas interfeisa:
 python projekta_programma.py
 ```
 
-Pašiem jāpiegādā banku (no EUR uz USD) valūtas kursu datubāze (`val-kursi.csv`), ja nepieciešami jaunāki valūtas kursi.
+Pašiem jāpiegādā banku (no EUR uz USD) valūtas kursu datubāze (`val-kursi.csv`) CSV faila formātā, ja nepieciešami jaunāki valūtas kursi.
