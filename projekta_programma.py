@@ -35,7 +35,7 @@ if val_apm_veids == 1:
 # ja lietotājs atrodas tuvumā pie Latvijas Bankas, velme_redz_nak_rezult = vai lietotājs vēlas redzēt citas bankas, kur apmainīt naudu? 
 if vai_atr_pie_ielas == 1:
    print("\nVispieejamākā vieta, kur apmainīt valūtu ir Latvijas Banka.\n")
-   velme_redz_nak_rezult = getAnswer(velme_redz_nak_rezult,"Ja jūs vēlaties redzēt citas bankas, kuras būtu izdevīgi apmainīt naudu, ievadiet 1. Ja nevēlaties, ievadiet 2.\n")
+   velme_redz_nak_rezult = getAnswer(velme_redz_nak_rezult,"Ja jūs vēlaties redzēt visas bankas, kurās būtu izdevīgi apmainīt naudu, ievadiet 1. Ja nevēlaties, ievadiet 2.\n")
 else: # citādāk, ja lietotājs neatrodas tuvumā pie LB, tad ir vēlme redzēt citas bankas, kur apmainīt naudu
    velme_redz_nak_rezult = 1
 
