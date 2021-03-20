@@ -1,5 +1,5 @@
 # Projekts programmēšanā
-Versija 0.2.1
+Versija 0.2.2
 
 Programma, kas pēc lietotāja vajadzībām atrod
 izdevīgākās un pieejamākās bankas, kur apmainīt valūtu no EUR uz USD

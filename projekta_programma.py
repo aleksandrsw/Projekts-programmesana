@@ -41,8 +41,10 @@ else: # citādāk, ja lietotājs neatrodas tuvumā pie LB, tad ir vēlme redzēt
 
 # ja lietotājs vēlas redzēt banku izdevīguma tabulu (ja lietotājs atrodas pie LB) vai neatrodas pie Latvijas Bankas, tad tā tiek parādīta
 if velme_redz_nak_rezult == 1:
-   val_kursi = csv.reader(open("val-kursi.csv"), delimiter=",")
-   val_kursi_sorted = sorted(val_kursi, key=operator.itemgetter(1), reverse=True) # sakārto valūtu kursu datubāzi augošā secībā
+   try: val_kursi = csv.reader(open("val-kursi.csv"), delimiter=",")
+   except: print("Kļūme datubāzes lasīšanā! Datubāzes failam jābūt CSV formātā.")
+   # sakārto valūtu kursu datubāzi augošā secībā
+   val_kursi_sorted = sorted(val_kursi, key=operator.itemgetter(1), reverse=True) 
    # izvada sakārtotu izdevīgāko banku tabulu augošā secībā pēc valūtas kursiem 
    print("\n  Izdevīgāko banku tabula:")
    for Banka, Kurss in val_kursi_sorted:
